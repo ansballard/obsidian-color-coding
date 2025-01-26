@@ -1,0 +1,40 @@
+@import "properties.css";
+@import "left-nav.css";
+@import "indented-headers.css";
+
+body:not(.is-phone) .workspace-leaf.mod-active .tree-item-self.has-focus {
+  box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+}
+
+.embedded-backlinks {
+  background: var(--grey-3);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  border-top: none;
+}
+
+body:not(.minimal-status-off) .status-bar {
+  background-color: var(--black);
+}
+
+.HyperMD-header,
+.inline-title {
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+
+.nav-folder-title {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+}
+
+.nav-file-title,
+.nav-folder-title {
+  border-radius: var(--border-radius);
+}
+
+.invalid-link {
+  display: none !important;
+}

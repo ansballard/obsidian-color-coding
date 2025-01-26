@@ -1,0 +1,41 @@
+:root {
+  /* COLORS */
+  --red: #ff6861;
+  --red-2: #ff755c;
+  --red-3: #ff8158;
+  --orange: #ffa350;
+  --orange-2: #ff8c55;
+  --orange-3: #ff9853;
+  --yellow: #f0d154;
+  --green: #3ec983;
+  --cyan: #26a8a2;
+  --blue: #5aa8ff;
+  --purple: #bb86fc;
+  --pink: #f17fa5;
+  --red-hover: #ff7d77;
+  --orange-hover: #ffae65;
+  --yellow-hover: #f0d66c;
+  --green-hover: #57d093;
+  --cyan-hover: #40b2ad;
+  --blue-hover: #6ab1ff;
+  --purple-hover: #c395fc;
+  --pink-hover: #f18eaf;
+  --grey: #4b505b;
+  --grey-2: #5d626b;
+  --grey-3: #262d39;
+  --black: #1b222f;
+  --white: white;
+
+  /* DIMENSIONS */
+  --border-radius: 10px;
+
+  /* COUNTERS */
+  counter-set: header-indent;
+  --header-indent-h1: 0;
+  --header-indent-h2: 0;
+  --header-indent-h3: 33;
+  --header-indent-h4: 4444;
+  --header-indent-h5: 555555;
+  --header-indent-h6: 66666666;
+  --header-indent-spacing: 10px;
+}

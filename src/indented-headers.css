@@ -1,0 +1,58 @@
+/* Set count values for each heading level, using more digits for each subsequent level.
+ It doesn't actually matter what the digits are. */
+div.cm-content h1,
+div.cm-content .HyperMD-header-1 {
+  counter-reset: header-indent var(--header-indent-h1);
+}
+div.cm-content h2,
+div.cm-content .HyperMD-header-2 {
+  counter-reset: header-indent var(--header-indent-h2);
+}
+div.cm-content h3,
+div.cm-content .HyperMD-header-3 {
+  counter-reset: header-indent var(--header-indent-h3);
+}
+div.cm-content h4,
+div.cm-content .HyperMD-header-4 {
+  counter-reset: header-indent var(--header-indent-h4);
+}
+div.cm-content h5,
+div.cm-content .HyperMD-header-5 {
+  counter-reset: header-indent var(--header-indent-h5);
+}
+div.cm-content h6,
+div.cm-content .HyperMD-header-6 {
+  counter-reset: header-indent var(--header-indent-h6);
+}
+
+/* Use a ::before to indent each section based on the text size of the counter number. */
+div.cm-content > .cm-line {
+  display: table !important; /* For achieving height: 100% on pseudo, b/c this has dynamic height */
+  text-indent: unset !important; /* Fix lists */
+  padding-inline-start: unset !important; /* Fix lists */
+  transform: translateX(-19px);
+}
+
+div.cm-content > .cm-line::before,
+div.cm-content > .cm-line::after {
+  content: counter(header-indent);
+  display: table-cell; /* Fills height of parent w/display:table, even if dynamic height */
+  color: transparent;
+  letter-spacing: var(--header-indent-spacing);
+
+  /* Don't expand past text content */
+  width: 1px;
+  white-space: nowrap;
+
+  /* Adjust to suit indentation size needs */
+  font-size: var(--h6-size);
+  font-family: monospace;
+}
+
+div.cm-content > .cm-line::after {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-left: 1px solid white;
+  transform: translateX(-15px);
+}

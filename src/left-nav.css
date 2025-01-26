@@ -1,0 +1,95 @@
+/* white gutters for tree view */
+.tree-item-children {
+  --nav-indentation-guide-color: var(--white) !important;
+}
+.nav-folder > .nav-folder-children.system3-live {
+  border-inline-start: solid var(--white) !important;
+}
+
+/* Specific colors for headers within the tree view */
+.nav-folder-children > .nav-folder,
+.nav-files-container > div > .nav-folder {
+  background-color: var(--folder-color);
+  border-radius: var(--border-radius);
+  --nav-item-color: var(--white);
+  --nav-item-color-hover: var(--white);
+  --nav-collapse-icon-color: var(--white);
+  --nav-item-color-active: var(--white);
+}
+
+.nav-files-container > div > .nav-folder .folder-icons {
+  --color-base-05: transparent;
+  --color-accent: var(--white);
+}
+
+.nav-files-container
+  > div
+  > .nav-folder:has(> [data-path="000 Maps of Content"]) {
+  --folder-color: var(--pink);
+  --nav-item-background-hover: var(--pink-hover);
+  --nav-item-background-active: var(--pink-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="001 Daily Notes"]) {
+  --folder-color: var(--red) !important;
+  --nav-item-background-hover: var(--red-hover);
+  --nav-item-background-active: var(--red-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="002 Weekly Notes"]) {
+  --folder-color: var(--red-2) !important;
+  --nav-item-background-hover: var(--red-2) !important;
+  --nav-item-background-active: var(--red-2) !important;
+}
+.nav-files-container
+  > div
+  > .nav-folder:has(> [data-path="003 Monthly Notes"]) {
+  --folder-color: var(--red-3) !important;
+  --nav-item-background-hover: var(--red-3) !important;
+  --nav-item-background-active: var(--red-3) !important;
+}
+.nav-files-container
+  > div
+  > .nav-folder:has(> [data-path="004 Quarterly Notes"]) {
+  --folder-color: var(--orange-2) !important;
+  --nav-item-background-hover: var(--orange-2) !important;
+  --nav-item-background-active: var(--orange-2) !important;
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="005 Annual Notes"]) {
+  --folder-color: var(--orange-3) !important;
+  --nav-item-background-hover: var(--orange-3) !important;
+  --nav-item-background-active: var(--orange-3) !important;
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="006 Fleeting"]) {
+  --folder-color: var(--yellow);
+  --nav-item-background-hover: var(--yellow-hover);
+  --nav-item-background-active: var(--yellow-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="007 Permanent"]) {
+  --folder-color: var(--green);
+  --nav-item-background-hover: var(--green-hover);
+  --nav-item-background-active: var(--green-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="008 Family"]) {
+  --folder-color: var(--cyan);
+  --nav-item-background-hover: var(--cyan-hover);
+  --nav-item-background-active: var(--cyan-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="009 Aaron"]) {
+  --folder-color: var(--blue);
+  --nav-item-background-hover: var(--blue-hover);
+  --nav-item-background-active: var(--blue-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="010 Catherine"]) {
+  --folder-color: var(--purple);
+  --nav-item-background-hover: var(--purple-hover);
+  --nav-item-background-active: var(--purple-hover);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="998 References"]) {
+  --folder-color: var(--grey) !important;
+  --nav-item-background-hover: var(--grey-2);
+  --nav-item-background-active: var(--grey-2);
+}
+.nav-files-container > div > .nav-folder:has(> [data-path="999 Extras"]) {
+  --folder-color: var(--grey) !important;
+  --nav-item-background-hover: var(--grey-2);
+  --nav-item-background-active: var(--grey-2);
+}
