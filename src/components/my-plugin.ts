@@ -1,5 +1,7 @@
 import {
   Editor,
+  MarkdownPostProcessor,
+  MarkdownPreviewRenderer,
   MarkdownView,
   Notice,
   Plugin,
@@ -7,6 +9,7 @@ import {
 import type { MyPluginSettings } from "../types"
 import { SampleModal } from "./sample-modal"
 import { SampleSettingTab } from "./sample-settings-tab"
+import { indentStateField } from "./indent-state-field"
 
 const DEFAULT_SETTINGS: MyPluginSettings = {
   mySetting: "default",
@@ -14,9 +17,49 @@ const DEFAULT_SETTINGS: MyPluginSettings = {
 
 export class MyPlugin extends Plugin {
   settings: MyPluginSettings
+  mdPostProcessor: MarkdownPostProcessor
 
   async onload() {
     await this.loadSettings()
+
+    this.registerEditorExtension(indentStateField);
+
+    // For the rendered (reader) view:
+    const mdPostProcessor = this.registerMarkdownPostProcessor((element) => {
+      if (!element || !element.parentNode) {
+        return;
+      }
+      if (element.classList.contains("el-p")) {
+        return;
+      }
+      const headerClass = Array.from(element.classList).find(c => c.startsWith("el-h"));
+      if (!headerClass) {
+        return;
+      }
+      console.log('should only be headers', {element})
+      let next = element.nextElementSibling;
+      while (next && !Array.from(next.classList).some(c => c.includes('el-h'))) {
+        next.classList.add(`${headerClass}-line`);
+        next = next.nextElementSibling;
+      }
+      // const nodes = Array.from(element.parentNode.querySelectorAll("[class^='el-h'] ~ .el-p"));
+      // for (const node of nodes) {
+      //   console.log({element, node})
+      //   const classes = Array.from(node.classList);
+      //   if (classes.some(c => c.startsWith("el-h") && !c.endsWith("-line"))) {
+      //     console.log('does this ever happen?')
+      //     return;
+      //   }
+      //   node.classList.add(`${headerClass}-line`);
+      // }
+    });
+
+    // // For the editor (CodeMirror) view:
+    // this.registerCodeMirror((cm) => {
+    //   cm.on("renderLine", (instance, line, el) => {
+    //     el.classList.add("my-editor-class");
+    //   });
+    // });
 
     // This creates an icon in the left ribbon.
     const ribbonIconEl = this.addRibbonIcon(
@@ -87,7 +130,10 @@ export class MyPlugin extends Plugin {
     )
   }
 
-  onunload() {}
+
+  onunload() {
+    // MarkdownPreviewRenderer.unregisterPostProcessor(this.mdPostProcessor)
+  }
 
   async loadSettings() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())

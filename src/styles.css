@@ -1,6 +1,6 @@
 @import "properties.css";
 @import "left-nav.css";
-@import "indented-headers.css";
+@import "indented-headers-2.css";
 
 body:not(.is-phone) .workspace-leaf.mod-active .tree-item-self.has-focus {
   box-shadow: 0 0 0 2px var(--background-modifier-border-focus);

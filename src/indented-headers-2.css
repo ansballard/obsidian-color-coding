@@ -1,0 +1,40 @@
+.HyperMD-header-3,
+.h3-line {
+  padding-left: 20px!important;
+}
+.HyperMD-header-3 {
+  padding-left: 0px!important;
+  border-left: 0px;
+}
+.h3-line::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  height: 100%;
+  border-right: 1px solid var(--orange);
+}
+.h4-line {
+  padding-left: 50px!important;
+}
+.h4-line::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 31px;
+  height: 100%;
+  border-right: 1px solid var(--yellow);
+}
+.HyperMD-header-4 {
+  padding-left: 30px!important;
+  transform: translateX(4dwpx);
+}
+
+.HyperMD-header-5,
+.h5-line {
+  padding-left: 70px!important;
+}
+.HyperMD-header-6,
+.h6-line {
+  padding-left: 90px!important;
+}
